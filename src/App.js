@@ -3,7 +3,9 @@ import './App.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import Home from './components/home.component';
 import Nav from './components/navigation.component';
-import { BrowserRouter } from 'react-router-dom';
+import Login from './components/login.component';
+import SignUp from './components/signUp.component';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 function App() {
   return (
@@ -12,7 +14,11 @@ function App() {
         <Nav/>
         <div className="auth-wrapper">
           <div className="auth-inner">
-            <Home/>
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route exact path="/login" component={Login} />
+              <Route exact path="/signUp" component={SignUp} />
+            </Switch>
           </div>
         </div>
       </div>
